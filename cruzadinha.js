@@ -10,18 +10,19 @@ let palavraI7 = [103, 104];
 let palavraBus = [231, 232, 233, 234, 235, 236, 237]
 var palavrasIndices = [palavraDual, palavraRegis, palavraI5, palavraMemoria, palavraI7, palavraBus];
 
-function oi() {
+function criarGrade() {
     for (var x = 0; x < 17; x++) {
         var linha = [];
         for (var y = 0; y < 15; y++) {
             linha.push(contador);
-            gradeContainer.innerHTML += `<div class="gradeItem ${contador}"><span>${contador}</span></div>`;
+            gradeContainer.innerHTML += `<div class="gradeItem ${contador}"><span class="palavrasTexto"></span></div>`;
             contador++;
         }
         grade.push(linha);
     }
 
     const elementos = document.querySelectorAll(".gradeItem");
+    const texto = document.querySelectorAll(".palavrasTexto");
     var palavra = ['DUAL CORE', 'REGISTRADORES', 'I5', 'MEMÓRIA DE MASSA', 'I7', 'DATA BUS'];
 
 
@@ -32,15 +33,16 @@ function oi() {
         for (var j = 0; j < palavraIndices.length; j++) {
             var indice = palavraIndices[j];
             
-            elementos[indice].classList.add('tem', 'hidden');
-            elementos[indice].innerHTML = palavraAtual.charAt(j);
+            elementos[indice].classList.add('tem');
+            texto[indice].classList.add('hidden');
+            texto[indice].innerHTML = palavraAtual.charAt(j);
         }
     }
 }
 
 function flash() {
-    const elementos = document.querySelectorAll(".gradeItem");
 
+    const texto = document.querySelectorAll(".palavrasTexto");
 
     for (var i = 0; i < palavrasIndices.length; i++) {
         var palavraIndices = palavrasIndices[i];
@@ -48,7 +50,14 @@ function flash() {
         for (var j = 0; j < palavraIndices.length; j++) {
             var indice = palavraIndices[j];
             
-            elementos[indice].classList.remove('hidden');
+            texto[indice].classList.remove('hidden');
         }
+    }
+}
+
+function ver(){
+    var teste = document.getElementById("teste")
+    if (teste.value == "I7"){
+        flash()
     }
 }

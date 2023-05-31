@@ -46,7 +46,11 @@ body {
 }
 
 .hidden{
- color: white;
+ visibility: hidden;
+}
+
+.palavrastexto{
+    color: white;
 }
 
 #gradeItemEspaço{
