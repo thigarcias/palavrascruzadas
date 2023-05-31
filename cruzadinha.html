@@ -19,33 +19,45 @@
             <span id="titulo">DICAS DA CRUZADINHA</span>
             <span class="dicasTexto">1. Um processador com dois núcleos de processamento.</span>
             <span class="dicasTexto">2. Locais de armazenamento temporário de dados de alta velocidade na CPU.</span>
-            <span class="dicasTexto">3. Unidade que realiza operações lógicas e aritméticas na CPU.</span>
-            <span class="dicasTexto">4. Barramento utilizado para transmitir endereços de memória ou dispositivos periféricos.</span>
-            <span class="dicasTexto">6. Tipo de memória que permite gravação e apagamento do conteúdo por luz ultravioleta.</span>
 
-            <span class="dicasTexto">7. Memória de acesso aleatório utilizada para armazenar temporariamente dados e instruções.</span>
+            <span class="dicasTexto">3. Unidades básicas de execução em um sistema operacional.</span>
 
-            <span class="dicasTexto">8. Técnica que permite que dispositivos acessem diretamente a memória do computador.</span>
-            
-            <span class="dicasTexto">9. Dispositivos de armazenamento em grande escala, como discos rígidos.</span>
+            <span class="dicasTexto">4. Unidade que realiza operações lógicas e aritméticas na CPU.</span>
+            <span class="dicasTexto">5. Tipo de memória que permite gravação e apagamento do conteúdo por luz
+                ultravioleta.</span>
+            <span class="dicasTexto">6. Unidade central de processamento responsável por executar instruções e controlar
+                o sistema.</span>
 
-            <span class="dicasTexto">10. Processador produzido pela Intel, conhecido por sua alta performance.</span>
+            <span class="dicasTexto">7. Barramento utilizado para transmitir endereços de memória ou dispositivos
+                periféricos.</span>
 
-            <span class="dicasTexto">11. Barramento utilizado para transmitir dados entre a CPU, memória e dispositivos.</span>
+            <span class="dicasTexto">8. Sinal de controle utilizado para selecionar um dispositivo específico em um
+                barramento.</span>
 
-            <span class="dicasTexto">12. Sinal de controle utilizado para selecionar um dispositivo específico em um barramento.</span>
 
-            <span class="dicasTexto">13. Processador produzido pela Intel, conhecido por seu desempenho em computadores pessoais.</span>
+            <span class="dicasTexto">9. Tipo de memória não volátil utilizada em dispositivos como pen drives e
+                SSDs.</span>
+            <span class="dicasTexto">10. Processador com quatro núcleos de processamento.</span>
 
-            <span class="dicasTexto">14. Tipo de memória não volátil utilizada em dispositivos como pen drives e SSDs.</span>
+            <span class="dicasTexto">11. Processador produzido pela Intel, conhecido por seu desempenho em computadores
+                pessoais.</span>
+            <span class="dicasTexto">12. Memória de acesso aleatório utilizada para armazenar temporariamente dados e
+                instruções.</span>
 
-            <span class="dicasTexto">15. Unidades básicas de execução em um sistema operacional.</span>
+            <span class="dicasTexto">13. Técnica que permite que dispositivos acessem diretamente a memória do
+                computador.</span>
+            <span class="dicasTexto">14. Barramento utilizado para transmitir dados entre a CPU, memória e
+                dispositivos.</span>
 
-            <span class="dicasTexto">16. Processador com quatro núcleos de processamento.</span>
+            <span class="dicasTexto">15. Dispositivos de armazenamento em grande escala, como discos rígidos.</span>
+
+            <span class="dicasTexto">16. Processador produzido pela Intel, conhecido por sua alta performance.</span>
+
 
             <span class="dicasTexto">17. Memória apenas de leitura que contém instruções e dados permanentes.</span>
 
-            <span class="dicasTexto">18. Memória de alta velocidade próxima à CPU utilizada para armazenar dados frequentemente acessados.</span>
+            <span class="dicasTexto">18. Memória de alta velocidade próxima à CPU utilizada para armazenar dados
+                frequentemente acessados.</span>
 
         </span>
         <span id="palavrasDicas">
@@ -115,7 +127,7 @@
                 if (contador === 0 || contador === 7 || contador === 42 || contador === 82 || contador === 51 || contador === 45 || contador === 144 || contador === 162 || contador === 184 || contador === 189 || contador === 179 || contador === 97 || contador === 137 || contador === 113 || contador === 35 || contador === 132 || contador === 272 || contador === 288) {
                     gradeContainer.innerHTML += `<input class="gradeItem ${contador} hidden" maxlength = "1" placeholder='${indicesInicial[contadorIndice]}'>`;
                     contadorIndice++
-                } else{
+                } else {
                     gradeContainer.innerHTML += `<input class="gradeItem ${contador} hidden" maxlength = "1">`;
                 }
                 contador++;
@@ -126,10 +138,10 @@
         const elementos = document.querySelectorAll(".gradeItem");
         const texto = document.querySelectorAll(".palavrasTexto");
         // for (var i = 0; i < palavraIndices.length; i++){
-        
+
         //     palavraIndice[i][0].placeholder = indicesInicial[i]
         // }
-     
+
 
 
         for (var i = 0; i < palavrasIndices.length; i++) {
