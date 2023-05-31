@@ -3,7 +3,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100vh;
-    background-image: url(./assets/img1.png);
+    /* background-image: url(./assets/img1.png); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 10%;
@@ -19,27 +19,66 @@ body {
 
 #gradeContainer{
     display: grid;
-    grid-template-columns: repeat(17, 41px);
-    grid-template-rows: repeat(15, 41px);
+    grid-template-columns: repeat(15, 41px);
+    grid-template-rows: repeat(17, 41px);
     gap: 0px;
-    justify-content: center;
+
 
 }
 
-#gradeItem{
+.gradeItem{
+    display: flex;
+    background-color: black; 
+    border: 1px solid white; 
+    height: 40px;
+    width: 40px;
+    font-size: 1vmax;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.gradeItem.tem{
+    background-color: white; 
+    border: 1px solid black; 
+}
+
+.hidden{
+ color: white;
+}
+
+#gradeItemEspaço{
     display: flex;
     height: 40px;
     width: 40px;
     font-size: 1vmax;
+    background-color: gray;
 }
 
-#gradeItemTem{
+.dualCore {
     display: flex;
     background-color: white; 
     border: 1px solid black; 
     height: 40px;
     width: 40px;
     font-size: 1vmax;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.registradores{
+    display: flex;
+    background-color: white; 
+    border: 1px solid black; 
+    height: 40px;
+    width: 40px;
+    font-size: 1vmax;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 #gradeContainer input:focus{
