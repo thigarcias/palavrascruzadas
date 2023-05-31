@@ -1,7 +1,9 @@
+
 const gradeContainer = document.getElementById("gradeContainer");
 
 var grade = [];
 var contador = 1;
+let palavra = ['DUAL CORE', 'REGISTRADORES', 'I5', 'MEMÓRIA DE MASSA', 'I7', 'DATA BUS'];
 let palavraDual = [9, 24, 39, 54, 69, 84, 99, 114, 129];
 let palavraRegis = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44];
 let palavraI5 = [35, 50];
@@ -23,8 +25,7 @@ function criarGrade() {
 
     const elementos = document.querySelectorAll(".gradeItem");
     const texto = document.querySelectorAll(".palavrasTexto");
-    var palavra = ['DUAL CORE', 'REGISTRADORES', 'I5', 'MEMÓRIA DE MASSA', 'I7', 'DATA BUS'];
-
+    
 
     for (var i = 0; i < palavrasIndices.length; i++) {
         var palavraIndices = palavrasIndices[i];
@@ -40,8 +41,18 @@ function criarGrade() {
     }
 }
 
-function flash() {
-
+function verificarPalavras(palavraEscrita) {
+    
+    for (var p = 1; p < palavra; p++){
+        if (palavraEscrita == palavra[p]){
+          mostrarPalavra()  
+        } else{
+            alert("Está incorreto!")
+        }
+    }
+    
+  
+  function mostrarPalavra(){  
     const texto = document.querySelectorAll(".palavrasTexto");
 
     for (var i = 0; i < palavrasIndices.length; i++) {
@@ -51,13 +62,20 @@ function flash() {
             var indice = palavraIndices[j];
             
             texto[indice].classList.remove('hidden');
+            texto[indice].classList.add('correto');
+            
         }
     }
 }
 
+
 function ver(){
-    var teste = document.getElementById("teste")
-    if (teste.value == "I7"){
-        flash()
+    var flash = document.getElementById("i_flash")
+    if (flash.value == "I7"){
+        var palavraEscrita = flash.value
+        verificarPalavras(palavraEscrita)
     }
 }
+
+
+
