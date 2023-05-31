@@ -3,34 +3,29 @@ body {
     padding: 0;
     width: 100%;
     height: 100vh;
-    /* background-image: url(./assets/img1.png); */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 10%;
-}
-
-#gradiente {
-    position: absolute;
-    z-index: -1;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3864) 58.7%, rgba(255, 255, 255, 0) 95.31%);
-    width: 100%;
-    height: 100%;
+    background-color: #18122B;
 }
 
 #gradeContainer {
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(20, 41px);
     grid-template-rows: repeat(16, 41px);
     gap: 0px;
+    margin-top: 3%;
 }
 
 .gradeItem {
     display: flex;
-    background-color: white;
-    border: 1px solid black;
+    background-color: #635985;
+    border: 2px solid #443C68;
+    color: white;
+    font-family: 'Montserrat';
     height: 40px;
     width: 40px;
+    border-radius: 8px;
     font-size: 1vmax;
+    font-weight: 600;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -39,8 +34,8 @@ body {
 }
 
 .gradeItem.hidden {
-    background-color: black;
-    border: 1px solid white;
+    background-color: #292241;
+    border: 1px solid #635985;
 }
 
 .gradeItem.espaco {
@@ -48,14 +43,83 @@ body {
     border: 1px solid black;
 }
 
-#gradeItemEspaço {
-    display: flex;
-    height: 40px;
-    width: 40px;
-    font-size: 1vmax;
-    background-color: gray;
-}
-
 #gradeContainer input:focus {
     outline: 0;
+}
+
+#dicas{
+    display: flex;
+    width: 100%;
+    height: 135vh;
+    margin-top: 8%;
+    background-color: #635985;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titulo{
+    display: flex;
+    color: #706594;
+    font-family: 'Montserrat';
+    width: 100%;
+    height: 15%;
+    background-color: #292241;
+    font-size: 1.5vmax;
+    font-weight: 800;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#tituloP{
+    display: flex;
+    color: #706594;
+    font-family: 'Montserrat';
+    width: 100%;
+    height: 8%;
+    background-color: #292241;
+    font-size: 1.5vmax;
+    font-weight: 800;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudoDicas{
+    display: flex;
+    background-color: #443C68;
+    width: 80%;
+    height: 100%;
+    margin-top: 2%;
+    border-radius: 10px;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+
+.dicasTexto{
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 1.15vmax;
+    font-weight: 500;
+    margin-left: 4%;
+    align-items: center;
+    line-height: 65px;
+}
+
+#btn {
+    display: flex;
+    background-color:#4d436e;
+    outline: 0;
+    border: 2px solid #706594;
+    width: 7%;
+    height: 5%;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 1vmax;
+    justify-content: center;
+    align-items: center;
+    margin-left: 65%;
+    margin-top: 2%;
+    border-radius: 10px;
+    cursor: pointer;
 }

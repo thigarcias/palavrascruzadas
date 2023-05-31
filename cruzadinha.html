@@ -6,19 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./cruzadinha.css">
-    <title>Document</title>
+    <title>PALAVRAS CRUZADAS</title>
 </head>
 
 <body>
-    <div id="gradiente"></div>
-
+    <div id="tituloP">CRUZADINHA ARQUITETURA COMPUTACIONAL</div>
     <div id="gradeContainer"></div>
-    <button onclick="verificarPalavras()">Ver</button>
+    <button onclick="verificarPalavras()" id="btn">Ver</button>
+
+    <div id="dicas">
+        <span id="conteudoDicas">
+            <span id="titulo">DICAS DA CRUZADINHA</span>
+            <span class="dicasTexto">1. Um processador com dois núcleos de processamento.</span>
+            <span class="dicasTexto">2. Locais de armazenamento temporário de dados de alta velocidade na CPU.</span>
+            <span class="dicasTexto">3. Unidade que realiza operações lógicas e aritméticas na CPU.</span>
+            <span class="dicasTexto">4. Barramento utilizado para transmitir endereços de memória ou dispositivos periféricos.</span>
+            <span class="dicasTexto">6. Tipo de memória que permite gravação e apagamento do conteúdo por luz ultravioleta.</span>
+
+            <span class="dicasTexto">7. Memória de acesso aleatório utilizada para armazenar temporariamente dados e instruções.</span>
+
+            <span class="dicasTexto">8. Técnica que permite que dispositivos acessem diretamente a memória do computador.</span>
+            
+            <span class="dicasTexto">9. Dispositivos de armazenamento em grande escala, como discos rígidos.</span>
+
+            <span class="dicasTexto">10. Processador produzido pela Intel, conhecido por sua alta performance.</span>
+
+            <span class="dicasTexto">11. Barramento utilizado para transmitir dados entre a CPU, memória e dispositivos.</span>
+
+            <span class="dicasTexto">12. Sinal de controle utilizado para selecionar um dispositivo específico em um barramento.</span>
+
+            <span class="dicasTexto">13. Processador produzido pela Intel, conhecido por seu desempenho em computadores pessoais.</span>
+
+            <span class="dicasTexto">14. Tipo de memória não volátil utilizada em dispositivos como pen drives e SSDs.</span>
+
+            <span class="dicasTexto">15. Unidades básicas de execução em um sistema operacional.</span>
+
+            <span class="dicasTexto">16. Processador com quatro núcleos de processamento.</span>
+
+            <span class="dicasTexto">17. Memória apenas de leitura que contém instruções e dados permanentes.</span>
+
+            <span class="dicasTexto">18. Memória de alta velocidade próxima à CPU utilizada para armazenar dados frequentemente acessados.</span>
+
+        </span>
+    </div>
 </body>
 
 </html>
 <script>
-
     const gradeContainer = document.getElementById("gradeContainer");
 
     var grade = [];
@@ -46,17 +80,24 @@
     let palavraCACHE = [288, 289, 290, 291, 292]
 
 
+
     var palavrasIndices = [palavraDual, palavraRegis, palavraULA, palavraAdress, palavraCPU, palavraEPROM, palavraRAM, palavraDMA, palavraMemoria, palavraI7, palavraData, palavraChip, palavraI5, palavraFlash, palavraThread, palavraQuad, palavraROM, palavraCACHE];
 
-
-
+    let indicesInicial = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+    var contadorIndice = 0
     window.onload = criarGrade()
+
     function criarGrade() {
         for (var x = 0; x < 20; x++) {
             var linha = [];
             for (var y = 0; y < 16; y++) {
                 linha.push(contador);
-                gradeContainer.innerHTML += `<input class="gradeItem ${contador} hidden" maxlength = "1">`;
+                if (contador === 0 || contador === 7 || contador === 42 || contador === 82 || contador === 51 || contador === 45 || contador === 144 || contador === 162 || contador === 184 || contador === 189 || contador === 179 || contador === 97 || contador === 137 || contador === 113 || contador === 35 || contador === 132 || contador === 272 || contador === 288) {
+                    gradeContainer.innerHTML += `<input class="gradeItem ${contador} hidden" maxlength = "1" placeholder='${indicesInicial[contadorIndice]}'>`;
+                    contadorIndice++
+                } else{
+                    gradeContainer.innerHTML += `<input class="gradeItem ${contador} hidden" maxlength = "1">`;
+                }
                 contador++;
             }
             grade.push(linha);
@@ -64,6 +105,11 @@
 
         const elementos = document.querySelectorAll(".gradeItem");
         const texto = document.querySelectorAll(".palavrasTexto");
+        // for (var i = 0; i < palavraIndices.length; i++){
+        
+        //     palavraIndice[i][0].placeholder = indicesInicial[i]
+        // }
+     
 
 
         for (var i = 0; i < palavrasIndices.length; i++) {
@@ -91,7 +137,7 @@
     function verificarPalavras() {
         var inputs_registradores = document.querySelectorAll(".REGISTRADORES"); //Selecionar todos os inputs com classe "cpu"
 
-        var dual_core_correta = ['D', 'U', 'A', 'L', undefined, 'C', 'O', 'R', 'E'];
+        var dual_core_correta = ['D', 'U', 'A', 'L', '', 'C', 'O', 'R', 'E'];
         var inputs_dual_core = document.querySelectorAll(".DUALCORE");
         validar(inputs_dual_core, dual_core_correta);
 
@@ -103,7 +149,7 @@
         var inputs_ula = document.querySelectorAll(".ULA");
         validar(inputs_ula, ula_correta);
 
-        var address_bus_correta = ['A', 'D', 'D', 'R', 'E', 'S', 'S', 'B', 'U', 'S'];
+        var address_bus_correta = ['A', 'D', 'D', 'R', 'E', 'S', 'S', '', 'B', 'U', 'S'];
         var inputs_address_bus = document.querySelectorAll(".ADDRESSBUS");
         validar(inputs_address_bus, address_bus_correta);
 
@@ -124,7 +170,7 @@
         var inputs_dma = document.querySelectorAll(".DMA");
         validar(inputs_dma, dma_correta);
 
-        var memoria_de_massa_correta = ['M', 'E', 'M', 'O', 'R', 'I', 'A', 'D', 'E', 'M', 'A', 'S', 'S', 'A'];
+        var memoria_de_massa_correta = ['M', 'E', 'M', 'O', 'R', 'I', 'A', '', 'D', 'E', '', 'M', 'A', 'S', 'S', 'A'];
         var inputs_memoria_de_massa = document.querySelectorAll(".MEMORIADEMASSA");
         validar(inputs_memoria_de_massa, memoria_de_massa_correta);
 
@@ -132,11 +178,11 @@
         var inputs_i7 = document.querySelectorAll(".I7");
         validar(inputs_i7, i7_correta);
 
-        var data_bus_correta = ['D', 'A', 'T', 'A', 'B', 'U', 'S'];
+        var data_bus_correta = ['D', 'A', 'T', 'A', '', 'B', 'U', 'S'];
         var inputs_data_bus = document.querySelectorAll(".DATABUS");
         validar(inputs_data_bus, data_bus_correta);
 
-        var cs_correta = ['C', 'H', 'I', 'P', 'S', 'E', 'L', 'E', 'C', 'T'];
+        var cs_correta = ['C', 'H', 'I', 'P', 'S', '', 'E', 'L', 'E', 'C', 'T'];
         var inputs_cs = document.querySelectorAll(".CHIPSELECT");
         validar(inputs_cs, cs_correta);
 
@@ -152,7 +198,7 @@
         var inputs_threds = document.querySelectorAll(".THREADS");
         validar(inputs_threds, threds_correta);
 
-        var quad_core_correta = ['Q', 'U', 'A', 'D', 'C', 'O', 'R', 'E'];
+        var quad_core_correta = ['Q', 'U', 'A', 'D', '', 'C', 'O', 'R', 'E'];
         var inputs_quad_core = document.querySelectorAll(".QUADCORE");
         validar(inputs_quad_core, quad_core_correta);
 
@@ -170,21 +216,21 @@
         var inputCampos = [];
 
         for (var i = 0; i < inputs.length; i++) {
-            console.log(inputs[4].value)
             var palavra = inputs[i].value;
             inputCampos.push(palavra.toUpperCase());
         }
-        console.log(inputCampos)
-        // for (let i = 0; i < inputCampos.length; i++) {
-        //     if (inputCampos[i] == '' || inputCampos[i] == undefined || inputCampos[i] == null) {
-        //         return;
-        //     }
-        // }
+
         for (var i = 0; i < inputCampos.length; i++) {
-            if (inputCampos[i] != correto[i]) {
-                inputs[i].style.color = 'red';
+            if (inputCampos[i] == correto[i]) {
+                inputs[i].style.color = '#48cf48';
             } else {
-                inputs[i].style.color = 'green';
+                if (inputCampos[i] == '') {
+                    return;
+                } else {
+
+                    inputs[i].style.color = 'red';
+                }
+
             }
         }
     }
