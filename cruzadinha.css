@@ -9,7 +9,7 @@ body {
     background-position: 10%;
 }
 
-#gradiente{
+#gradiente {
     position: absolute;
     z-index: -1;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.3864) 58.7%, rgba(255, 255, 255, 0) 95.31%);
@@ -17,19 +17,17 @@ body {
     height: 100%;
 }
 
-#gradeContainer{
+#gradeContainer {
     display: grid;
-    grid-template-columns: repeat(15, 41px);
-    grid-template-rows: repeat(17, 41px);
+    grid-template-columns: repeat(20, 41px);
+    grid-template-rows: repeat(16, 41px);
     gap: 0px;
-
-
 }
 
-.gradeItem{
+.gradeItem {
     display: flex;
-    background-color: black; 
-    border: 1px solid white; 
+    background-color: white;
+    border: 1px solid black;
     height: 40px;
     width: 40px;
     font-size: 1vmax;
@@ -40,20 +38,17 @@ body {
     padding: 0;
 }
 
-.gradeItem.tem{
-    background-color: white; 
-    border: 1px solid black; 
+.gradeItem.hidden {
+    background-color: black;
+    border: 1px solid white;
 }
 
-.hidden{
- visibility: hidden;
+.gradeItem.espaco {
+    background-color: rgb(68, 63, 63);
+    border: 1px solid black;
 }
 
-.palavrastexto{
-    color: white;
-}
-
-#gradeItemEspaço{
+#gradeItemEspaço {
     display: flex;
     height: 40px;
     width: 40px;
@@ -61,30 +56,6 @@ body {
     background-color: gray;
 }
 
-.dualCore {
-    display: flex;
-    background-color: white; 
-    border: 1px solid black; 
-    height: 40px;
-    width: 40px;
-    font-size: 1vmax;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-.registradores{
-    display: flex;
-    background-color: white; 
-    border: 1px solid black; 
-    height: 40px;
-    width: 40px;
-    font-size: 1vmax;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-#gradeContainer input:focus{
+#gradeContainer input:focus {
     outline: 0;
 }

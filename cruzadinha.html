@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,184 @@
     <link rel="stylesheet" href="./cruzadinha.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="gradiente"></div>
-    <button onclick="criarGrade()">Iniciar o caça palavras</button>
-    <button onclick="ver()">Flash</button>
-    <div id="gradeContainer">
 
-    </div>
-
-    <input type="text" name="" id="teste">
+    <div id="gradeContainer"></div>
+    <button onclick="verificarPalavras()">Ver</button>
 </body>
+
 </html>
-<script src="./cruzadinha.js"></script>
+<script>
+
+    const gradeContainer = document.getElementById("gradeContainer");
+
+    var grade = [];
+    var contador = 0;
+    let palavra = ['DUAL CORE', 'REGISTRADORES', 'ULA', 'ADDRESS BUS', 'CPU', 'EPROM', 'RAM', 'DMA', 'MEMORIA DE MASSA', 'I7', 'DATA BUS', 'CHIP SELECT', 'I5', 'FLASH', 'THREADS', 'QUAD CORE', 'ROM', 'CACHE'];
+    let palavraDual = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    let palavraRegis = [7, 27, 47, 67, 87, 107, 127, 147, 167, 187, 207, 227, 247]
+    let palavraULA = [42, 62, 82]
+    let palavraAdress = [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92]
+    let palavraCPU = [51, 71, 91]
+    let palavraEPROM = [45, 65, 85, 105, 125]
+    let palavraRAM = [144, 164, 184]
+    let palavraDMA = [162, 163, 164]
+    let palavraMemoria = [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199];
+    let palavraI7 = [189, 209]
+    let palavraData = [179, 199, 219, 239, 259, 279, 299, 319]
+    let palavraChip = [97, 117, 137, 157, 177, 197, 217, 237, 257, 277, 297
+    ]
+    let palavraI5 = [137, 138]
+    let palavraFlash = [113, 114, 115, 116, 117]
+    let palavraThread = [35, 55, 75, 95, 115, 135, 155]
+    let palavraQuad = [132, 152, 172, 192, 212, 232, 252, 272, 292
+    ]
+    let palavraROM = [272, 273, 274]
+    let palavraCACHE = [288, 289, 290, 291, 292]
+
+
+    var palavrasIndices = [palavraDual, palavraRegis, palavraULA, palavraAdress, palavraCPU, palavraEPROM, palavraRAM, palavraDMA, palavraMemoria, palavraI7, palavraData, palavraChip, palavraI5, palavraFlash, palavraThread, palavraQuad, palavraROM, palavraCACHE];
+
+
+
+    window.onload = criarGrade()
+    function criarGrade() {
+        for (var x = 0; x < 20; x++) {
+            var linha = [];
+            for (var y = 0; y < 16; y++) {
+                linha.push(contador);
+                gradeContainer.innerHTML += `<input class="gradeItem ${contador} hidden" maxlength = "1">`;
+                contador++;
+            }
+            grade.push(linha);
+        }
+
+        const elementos = document.querySelectorAll(".gradeItem");
+        const texto = document.querySelectorAll(".palavrasTexto");
+
+
+        for (var i = 0; i < palavrasIndices.length; i++) {
+            var palavraIndices = palavrasIndices[i];
+            var palavraAtual = palavra[i];
+
+            for (var j = 0; j < palavraIndices.length; j++) {
+                var indice = palavraIndices[j];
+                // if (palavraIndices[j] == 4) {
+                //     var inputs = document.getElementsByTagName("input");
+                //     var input = inputs[4];
+                //     var div = document.createElement("div");
+                //     div.innerHTML = input.value;
+                //     input.parentNode.replaceChild(div, input);
+                // } else {
+                let palavraClass = palavra[i].replace(/ /g, "");
+                elementos[indice].classList.remove('hidden');
+                elementos[indice].classList.add(palavraClass);
+
+            }
+
+        }
+    }
+
+    function verificarPalavras() {
+        var inputs_registradores = document.querySelectorAll(".REGISTRADORES"); //Selecionar todos os inputs com classe "cpu"
+
+        var dual_core_correta = ['D', 'U', 'A', 'L', undefined, 'C', 'O', 'R', 'E'];
+        var inputs_dual_core = document.querySelectorAll(".DUALCORE");
+        validar(inputs_dual_core, dual_core_correta);
+
+
+        var registradores_correta = ['R', 'E', 'G', 'I', 'S', 'T', 'R', 'A', 'D', 'O', 'R', 'E', 'S'];
+        validar(inputs_registradores, registradores_correta); //Função está lá embaixo
+
+        var ula_correta = ['U', 'L', 'A'];
+        var inputs_ula = document.querySelectorAll(".ULA");
+        validar(inputs_ula, ula_correta);
+
+        var address_bus_correta = ['A', 'D', 'D', 'R', 'E', 'S', 'S', 'B', 'U', 'S'];
+        var inputs_address_bus = document.querySelectorAll(".ADDRESSBUS");
+        validar(inputs_address_bus, address_bus_correta);
+
+
+        var cpu_correta = ['C', 'P', 'U'];
+        var inputs_cpu = document.querySelectorAll(".CPU"); //Selecionar todos os inputs com classe "cpu"
+        validar(inputs_cpu, cpu_correta); //Função está lá embaixo
+
+        var eprom_correta = ['E', 'P', 'R', 'O', 'M'];
+        var inputs_eprom = document.querySelectorAll(".EPROM");
+        validar(inputs_eprom, eprom_correta);
+
+        var ram_correta = ['R', 'A', 'M'];
+        var inputs_ram = document.querySelectorAll(".RAM");
+        validar(inputs_ram, ram_correta);
+
+        var dma_correta = ['D', 'M', 'A'];
+        var inputs_dma = document.querySelectorAll(".DMA");
+        validar(inputs_dma, dma_correta);
+
+        var memoria_de_massa_correta = ['M', 'E', 'M', 'O', 'R', 'I', 'A', 'D', 'E', 'M', 'A', 'S', 'S', 'A'];
+        var inputs_memoria_de_massa = document.querySelectorAll(".MEMORIADEMASSA");
+        validar(inputs_memoria_de_massa, memoria_de_massa_correta);
+
+        var i7_correta = ['I', '7'];
+        var inputs_i7 = document.querySelectorAll(".I7");
+        validar(inputs_i7, i7_correta);
+
+        var data_bus_correta = ['D', 'A', 'T', 'A', 'B', 'U', 'S'];
+        var inputs_data_bus = document.querySelectorAll(".DATABUS");
+        validar(inputs_data_bus, data_bus_correta);
+
+        var cs_correta = ['C', 'H', 'I', 'P', 'S', 'E', 'L', 'E', 'C', 'T'];
+        var inputs_cs = document.querySelectorAll(".CHIPSELECT");
+        validar(inputs_cs, cs_correta);
+
+        var i5_correta = ['I', '5'];
+        var inputs_i5 = document.querySelectorAll(".I5");
+        validar(inputs_i5, i5_correta);
+
+        var flash_correta = ['F', 'L', 'A', 'S', 'H'];
+        var inputs_flash = document.querySelectorAll(".FLASH");
+        validar(inputs_flash, flash_correta);
+
+        var threds_correta = ['T', 'H', 'R', 'E', 'A', 'D', 'S'];
+        var inputs_threds = document.querySelectorAll(".THREADS");
+        validar(inputs_threds, threds_correta);
+
+        var quad_core_correta = ['Q', 'U', 'A', 'D', 'C', 'O', 'R', 'E'];
+        var inputs_quad_core = document.querySelectorAll(".QUADCORE");
+        validar(inputs_quad_core, quad_core_correta);
+
+
+        var rom_correta = ['R', 'O', 'M'];
+        var inputs_rom = document.querySelectorAll(".ROM");
+        validar(inputs_rom, rom_correta);
+
+        var cache_correta = ['C', 'A', 'C', 'H', 'E'];
+        var inputs_cache = document.querySelectorAll(".CACHE");
+        validar(inputs_cache, cache_correta);
+    }
+
+    function validar(inputs, correto) {
+        var inputCampos = [];
+
+        for (var i = 0; i < inputs.length; i++) {
+            console.log(inputs[4].value)
+            var palavra = inputs[i].value;
+            inputCampos.push(palavra.toUpperCase());
+        }
+        console.log(inputCampos)
+        // for (let i = 0; i < inputCampos.length; i++) {
+        //     if (inputCampos[i] == '' || inputCampos[i] == undefined || inputCampos[i] == null) {
+        //         return;
+        //     }
+        // }
+        for (var i = 0; i < inputCampos.length; i++) {
+            if (inputCampos[i] != correto[i]) {
+                inputs[i].style.color = 'red';
+            } else {
+                inputs[i].style.color = 'green';
+            }
+        }
+    }
+</script>
