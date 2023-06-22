@@ -4,6 +4,8 @@ body {
     width: 100%;
     height: 100vh;
     background-color: #18122B;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #gradeContainer {
@@ -53,6 +55,9 @@ body {
     height: 150vh;
     margin-top: 8%;
     background-color: #635985;
+    justify-content: center;
+    /* overflow: hidden;
+    scroll-behavior: smooth; */
 }
 
 #titulo{
@@ -68,6 +73,25 @@ body {
     border-top-right-radius: 10px;
     justify-content: center;
     align-items: center;
+}
+
+#botaoPalavra{
+    display: flex;
+    color: white;
+    background-color: #635985;
+    width: 10%;
+    height: 6%;
+    font-size: 1vmax;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 10px;
+    left: 73%;
+    cursor: pointer;
+}
+
+#botaoPalavra:hover{
+    background-color: #7060a7;
 }
 
 #tituloP{
@@ -86,13 +110,13 @@ body {
 #conteudoDicas{
     display: flex;
     background-color: #443C68;
-    width: 65%;
+    min-width: 70%;
     height: 95%;
     margin-top: 2%;
     border-radius: 10px;
     flex-direction: column;
     margin-bottom: 2%;
-    margin-left: 1%;
+    align-items: center;
 }
 
 .dicasTexto{
@@ -105,43 +129,96 @@ body {
     line-height: 65px;
 }
 
+#botoes{
+    display: flex;
+    width: 14%;
+    height: 5%;
+    margin-left: 55%;
+    margin-top: 2%;
+}
+
+#btnDescer{
+    display: flex;
+    background-color:#4d436e;
+    outline: 0;
+    border: 2px solid #706594;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    font-size: 1vmax;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 4%;
+}
+
+#btnDescer:hover{
+    background-color: #7060a7;
+}
+
+
 #btn {
     display: flex;
     background-color:#4d436e;
     outline: 0;
     border: 2px solid #706594;
-    width: 7%;
-    height: 5%;
+    width: 100%;
+    height: 100%;
     color: white;
+    font-weight: 700;
     font-family: 'Montserrat';
     font-size: 1vmax;
     justify-content: center;
     align-items: center;
-    margin-left: 65%;
-    margin-top: 2%;
     border-radius: 10px;
     cursor: pointer;
 }
 
+#btn:hover{
+    background-color: #7060a7;
+}
+
 #palavrasDicas{
     display: flex;
-    background-color: #443C68;
-    width: 30%;
-    height: 95%;
+    position: absolute;
+    background-color: #4d436e;
+    min-width: 30%;
+    height: 100%;
     margin-top: 2%;
-    margin-left: 2%;
+    left: 55%;
     border-radius: 10px;
     flex-direction: column;
-    margin-bottom: 2%;
+    animation-name: animacao;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+}
+
+#botaoVoltar{
+    display: flex;
+    position: absolute;
+    top: 0.8%;
+    color: #292241;
+    left: 92%;
+    cursor: pointer;
+    font-size: 1.9vmax;
+    font-weight: 800;
+}
+
+#botaoVoltar:hover{
+   color: #443770;
 }
 
 #palavrasTitulo{
     display: flex;
-    color: #706594;
+    color: #292241;
     font-family: 'Montserrat';
     width: 100%;
-    height: 20%;
-    background-color: #292241;
+    min-height: 10%;
+    background-color: #706594;
     font-size: 1.5vmax;
     font-weight: 800;
     border-top-left-radius: 10px;
@@ -157,7 +234,45 @@ body {
     font-size: 1.3vmax;
     font-weight: 600;
     width: 100%;
+    height: 15%;
     justify-content: center;
     align-items: center;
-    line-height: 65px;
+    
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #7060a7;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #18122B;
+    border-radius: 20px;
+
+}
+
+
+@keyframes animacao {
+    from {
+        min-width: 0%;
+        height: 0%;
+    }
+
+    to {
+        min-width: 30%;
+        height: 100%;
+    }
+}
+
+@keyframes tchau {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }

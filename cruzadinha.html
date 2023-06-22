@@ -6,17 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./cruzadinha.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>PALAVRAS CRUZADAS</title>
 </head>
 
-<body>
+<body id="corpo">
     <div id="tituloP">CRUZADINHA ARQUITETURA COMPUTACIONAL</div>
     <div id="gradeContainer"></div>
-    <button onclick="verificarPalavras()" id="btn">Validar</button>
+    <div id="botoes">
+        <button onclick="verificarPalavras()" id="btn">VALIDAR</button>
+        <button onclick="verDicas()" id="btnDescer">VER DICAS</button>
+    </div>
+
 
     <div id="dicas">
         <span id="conteudoDicas">
-            <span id="titulo">DICAS DA CRUZADINHA</span>
+            <span id="titulo">DICAS DA CRUZADINHA
+                <span id="botaoPalavra">VER PALAVRAS</span>
+            </span>
             <span class="dicasTexto">1. Um processador com dois núcleos de processamento.</span>
             <span class="dicasTexto">2. Locais de armazenamento temporário de dados de alta velocidade na CPU.</span>
 
@@ -61,6 +68,7 @@
 
         </span>
         <span id="palavrasDicas">
+            <span class="material-symbols-outlined" id="botaoVoltar">close</span>
             <span id="palavrasTitulo">PALAVRAS</span>
             <span class="palavrasTexto">REGISTRADORES</span>
             <span class="palavrasTexto">ULA</span>
@@ -78,7 +86,7 @@
             <span class="palavrasTexto">ROM</span>
             <span class="palavrasTexto">CACHE</span>
             <span class="palavrasTexto">THREADS</span>
-            <span class="palavrasTexto">THREADS</span>
+            <span class="palavrasTexto">CHIP SELECT</span>
         </span>
     </div>
 </body>
@@ -266,4 +274,41 @@
             }
         }
     }
+
+
+
+
+
+
+
+    // SCRIPT dos botões
+    const botaoPalavra = document.getElementById("botaoPalavra")
+    const botaoVoltar = document.getElementById("botaoVoltar")
+    const palavrasDicas = document.getElementById("palavrasDicas")
+    botaoPalavra.addEventListener("click", function(){
+        menu()
+    })
+
+    botaoVoltar.addEventListener("click", function(){
+        menu()
+    })
+
+
+    function menu(){
+        if (palavrasDicas.style.display == 'none' || palavrasDicas.style.display == ''){
+            palavrasDicas.style.display = 'flex'
+        } else{
+            palavrasDicas.style.display = 'none'
+
+        }
+    }
+
+    function verDicas(){
+        const conteudoDicas = document.querySelectorAll("#conteudoDicas")
+        conteudoDicas[0].scrollIntoView({ behavior: "smooth" })
+        corpo.style.overflowY = 'scroll'
+    }
+
+
+
 </script>
